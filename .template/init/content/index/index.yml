@@ -1,0 +1,15 @@
+title: About TerriaMap       
+
+header:
+  - /_shared/header.md
+  - /_shared/nav.md
+  
+main:
+  - body.md
+
+sidebar:
+  - sidebar.md
+  
+footer:
+  - /_shared/footer.md
+

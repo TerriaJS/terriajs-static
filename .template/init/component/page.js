@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+
+
 /**
  * The page layout component
  */
@@ -10,7 +12,7 @@ const Page = ({ title, stylesheet, header, main, sidebar, footer, script, _relat
 		<meta charSet="utf-8" />
 		<meta httpEquiv="x-ua-compatible" content="ie=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href={ _relativeURL( `/assets/css/index.css`, _ID ) } />
+
 		<link rel="stylesheet" href={ _relativeURL( `/assets/css/site.css`, _ID ) } />
 		{
 			stylesheet != undefined
