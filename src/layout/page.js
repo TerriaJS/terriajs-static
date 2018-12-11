@@ -12,7 +12,7 @@ const Page = ({ title, stylesheet, header, main, sidebar, footer, script, _relat
 		<meta charSet="utf-8" />
 		<meta httpEquiv="x-ua-compatible" content="ie=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+		<link rel="stylesheet" href="../node_modules/terriajs-static/css/index.css" />
 		<link rel="stylesheet" href={ _relativeURL( `/assets/css/site.css`, _ID ) } />
 		{
 			stylesheet != undefined
