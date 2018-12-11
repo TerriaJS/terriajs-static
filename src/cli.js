@@ -1,12 +1,4 @@
-/***************************************************************************************************************************************************************
- *
- * Display various cli options
- *
- * DisplayHelp    - Display the help
- * DisplayVersion - Display the version of 
- * DisplayWelcome - Display the welcome message
- *
- **************************************************************************************************************************************************************/
+// adapted from https://github.com/cuttlebelle/cuttlebelle/blob/master/src/cli.js
 
 'use strict';
 

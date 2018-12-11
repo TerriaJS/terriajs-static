@@ -65,10 +65,11 @@ export const SETTINGS = {
 	defaults: {
 		folder: {
 			cwd: Path.normalize(`${ process.cwd() }/`),
-			content: Path.normalize(`${ process.cwd() }/content/`),
-			component: Path.normalize(`${ process.cwd() }/component/`),
-			assets: Path.normalize(`${ process.cwd() }/assets/`),
-			site: Path.normalize(`${ process.cwd() }/site/`),
+		
+			content: Path.normalize(`${ process.cwd() }/pages/content/`),
+			component: Path.normalize(`${ __dirname }/../component/`),
+			assets: Path.normalize(`${ process.cwd() }/pages/assets/`),
+			site: Path.normalize(`${ process.cwd() }/pages/site/`),
 			index: 'index',
 			homepage: 'index',
 		},
@@ -80,7 +81,7 @@ export const SETTINGS = {
 			root: Path.normalize(`/`),
 			doctype: '<!DOCTYPE html>', // https://github.com/facebook/react/issues/1035
 			redirectReact: true,
-			markdownRenderer: '',
+			markdownRenderer:'',
 			watchTimeout: 400,
 		}
 	},

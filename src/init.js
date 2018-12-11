@@ -34,16 +34,11 @@ export const Init = () /*: void */ => {
 	Log.info(`Creating pages for you`);
 
 	const _hasContent = Fs.existsSync( SETTINGS.get().folder.content );
-	const _hasCode = Fs.existsSync( SETTINGS.get().folder.component );
 	const _hasAssets = Fs.existsSync( SETTINGS.get().folder.assets );
 
-	if( _hasContent || _hasCode || _hasAssets ) {
+	if( _hasContent || _hasAssets ) {
 		if( _hasContent ) {
 			Log.info(`Found content in ${ Style.yellow( SETTINGS.get().folder.content ) }`);
-		}
-
-		if( _hasCode ) {
-			Log.info(`Found content in ${ Style.yellow( SETTINGS.get().folder.component ) }`);
 		}
 
 		if( _hasAssets ) {
@@ -53,10 +48,8 @@ export const Init = () /*: void */ => {
 		Log.info(`There were already files or folders in the content, component or assets folder.`);
 	}
 	else {
-		CopyStuff( 'component' );
 		CopyStuff( 'content' );
 		CopyStuff( 'assets' );
-
 		Log.done(`Successfully created a clean slate`);
 	}
 }
