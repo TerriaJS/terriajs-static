@@ -17,6 +17,7 @@ class Index extends React.Component {
   constructor(props) {
    super(props);
    this.state = {text: ''};
+   this.handleChange = this.handleChange.bind(this);
  }
  
  handleChange(text, medium){
