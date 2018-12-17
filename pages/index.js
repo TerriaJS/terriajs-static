@@ -1,8 +1,11 @@
-import Layout from './Layout.js'
-import Link from 'next/link'
-import fetch from 'isomorphic-unfetch'
-import Editor from 'react-medium-editor'
-import mediumStyle from 'medium-editor/dist/css/medium-editor.css'
+import Layout from './Layout.js';
+import Link from 'next/link';
+import fetch from 'isomorphic-unfetch';
+import Editor from 'react-medium-editor';
+import fetchData from '../helpers/fetchData';
+import saveData from '../helpers/saveData';
+import 'medium-editor/dist/css/medium-editor.css';
+import 'medium-editor/dist/css/themes/default.css';
 
 
 const PostLink = (props) => (
@@ -18,11 +21,22 @@ class Index extends React.Component {
    super(props);
    this.state = {text: ''};
    this.handleChange = this.handleChange.bind(this);
+   this.handleSave = this.handleSave.bind(this);
  }
  
  handleChange(text, medium){
    this.setState({
      text: text
+   })
+ }
+ 
+ handleSave(){
+   saveData(this.state.text)
+ }
+ 
+ componentDidMount(){
+   this.setState({
+     text: this.props.data
    })
  }
  
@@ -34,23 +48,15 @@ class Index extends React.Component {
        <PostLink id="faq" title="FAQ"/>
      </ul>
      <Editor
-           tag="pre"
            text={this.state.text}
            onChange={this.handleChange}
-           options={{toolbar: {buttons: ['bold', 'italic', 'underline']}}}
      />
+     <button onClick={this.handleSave}>Save</button>
    </Layout>)
  }
 }
 
 
-Index.getInitialProps = async function() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos/1')
-  const data = await res.json()
-  console.log(data)
-  return {
-    data: data
-  }
-}
+Index.getInitialProps = fetchData;
 
 export default Index
