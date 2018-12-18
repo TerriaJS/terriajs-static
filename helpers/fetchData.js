@@ -5,7 +5,7 @@ const fetchData = async function() {
   const data = await res.json()
   console.log(data)
   return {
-    data: data.title
+    value: data.title
   }
 }
 
