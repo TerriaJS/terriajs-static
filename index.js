@@ -1,9 +1,9 @@
 const matter = require('gray-matter');
 const fs = require('fs');
 
-const folder = './test'
+const folder = process.cwd() + "/markdown";
 
-fs.readdir('/test', function(error, files){
+fs.readdir(folder, function(error, files){
   console.log(files);
   if(error){
     console.log(error);
