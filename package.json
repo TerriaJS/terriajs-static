@@ -7,45 +7,25 @@
 		"url": "git://github.com/terriajs/terriajs-static.git"
 	},
 	"scripts": {
-		"build": "npm run build:js",
-		"build:js": "babel src --out-dir dist",
-		"watch": "babel src --watch --out-dir dist"
+		"start": "webpack-dev-server --mode development --open",
+		"build": "webpack --mode production"
 	},
 	"dependencies": {
-		"babel-plugin-import-redirect": "^1.1.1",
-		"babel-plugin-syntax-dynamic-import": "^6.18.0",
-		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-		"babel-plugin-transform-object-rest-spread": "^6.26.0",
-		"babel-plugin-transform-runtime": "^6.23.0",
-		"babel-preset-env": "1.6.1",
-		"babel-preset-react": "^6.24.1",
-		"babel-register": "^6.26.0",
-		"babel-runtime": "^6.26.0",
-		"browser-sync": "^2.23.2",
-		"del": "^3.0.0",
-		"fs-extra": "^5.0.0",
-		"js-yaml": "^3.10.0",
-		"marked": "^0.3.16",
-		"node-notifier": "^5.1.2",
-		"pretty": "^2.0.0",
-		"prop-types": "^15.6.0",
-		"react": "^16.2.0",
-		"react-docgen": "^2.20.0",
-		"react-dom": "^16.2.0",
-		"require-from-string": "^2.0.1",
-		"slugify": "^1.2.9",
-		"traverse": "^0.6.6",
-		"upath": "^1.0.2",
-		"window-size": "^1.1.0"
+		"markdown-with-front-matter-loader": "^0.1.0",
+		"react": "^16.7.0",
+		"react-document-title": "^2.0.3",
+		"react-dom": "^16.7.0",
+		"react-router-dom": "^4.3.1"
 	},
 	"devDependencies": {
-		"babel-cli": "^6.26.0",
-		"chalk": "^2.3.0",
-		"copy-dir": "^0.3.0",
-		"dirsum": "^0.1.1",
-		"marked-man": "^0.2.1",
-		"onchange": "^3.3.0",
-		"replace-in-file": "^3.1.0"
+		"babel-core": "^6.26.3",
+		"babel-loader": "^7.1.5",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.24.1",
+		"html-webpack-plugin": "^3.2.0",
+		"webpack": "^4.20.2",
+		"webpack-cli": "^3.2.1",
+		"webpack-dev-server": "^3.1.14"
 	},
 	"main": "dist/index.js"
 }

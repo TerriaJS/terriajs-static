@@ -9,11 +9,5 @@
 				}
 			}
 		]
-	],
-	"plugins": [
-		"transform-object-rest-spread",
-		"transform-runtime",
-		"transform-es2015-modules-commonjs",
-		"syntax-dynamic-import"
 	]
 }
