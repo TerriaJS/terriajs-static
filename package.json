@@ -14,7 +14,8 @@
 		"express": "^4.16.4",
 		"gray-matter": "^4.0.1",
 		"mustache": "^3.0.1",
-		"showdown": "^1.9.0"
+		"showdown": "^1.9.0",
+		"util": "^0.11.1"
 	},
 	"devDependencies": {
 		"nodemon": "^1.18.9"

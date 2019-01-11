@@ -2,6 +2,11 @@ const matter = require('gray-matter');
 const fs = require('fs');
 const showdown = require('showdown');
 const Mustache = require('mustache');
+const {promisify} = require('util');
+
+const readDirAsync = promisify(fs.readdir);
+const readFileAsync = promisify(fs.readFile);
+const writeFileAsync = promisify(fs.writeFile);
 
 const folder = process.cwd() + "/markdown";
 
@@ -11,32 +16,56 @@ const template = process.cwd() + "/template";
 
 const converter = new showdown.Converter();
 
-fs.readdir(folder, function(error, files){
-  if(files.length > 0){
-    files.forEach(file => {
-      content = matter.read(folder + '/' + file);
-      const fileTitle = content.data.title + '.html';
-      // create html content
-      const contentHtml = converter.makeHtml(content.content);
-      
-      // load mst template
-      fs.readFile(template +'/wrapper.mst', function (err, data) {
-        if (err) throw err;
-        const output = Mustache.render(data.toString(), {content: contentHtml});
+const nav = [
+  {title: 'About', link: '/about'},
+  {title: 'Help & FAQ', link: '/help'}
+]
 
-        // write file
-        fs.writeFile(target + '/' + fileTitle, output, err => {
-          if(err){
-            throw err;
-          }
-          return console.log(target + '/' + fileTitle + " has been saved");
-        })
-      })
-      
-    })    
+
+function generateNav(pageTitle){
+  return `<ul>
+    ${nav.map(item =>
+    `<li><a href='${item.link}' class=${item.title === pageTitle ? '"active"' : '"non-active"' }>${item.title}</a></li>`).join(" ")}
+  </ul>`
+}
+
+async function writeFile(fileTitle, output){
+  try{
+    await writeFileAsync(target + '/' + fileTitle, output);
+    console.log(target + '/' + fileTitle + " has been saved")
   }
-  if(error){
-    console.log(error);
+  catch(err){
+    console.log('ERROR', err);
   }
-});
+}
+
+async function generateHtml(file){
+  try{
+    const content = matter.read(folder + '/' + file, {encoding: 'utf8'});
+    const fileTitle = content.data.title + '.html';
+    const contentHtml = converter.makeHtml(content.content);
+    const data = await readFileAsync(template +'/wrapper.mst', {encoding: 'utf8'});
+    const output = Mustache.render(data.toString(), {content: contentHtml, nav: generateNav(content.data.title)});
+    writeFile(fileTitle, output);
+  }
+  catch(err){
+    console.log('ERROR', err);
+  }
+}
+
+async function loadContent(){
+  try{
+    const files = await readDirAsync(folder);
+    for( let i = 0; i < files.length; i ++){
+      const file = files[i];
+      generateHtml(file);
+    }
+  }
+  catch(err){
+    console.log('ERROR', err);
+  }
+}
+
+loadContent();
+
 

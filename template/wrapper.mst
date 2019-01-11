@@ -4,6 +4,7 @@
 <div id="content"></div>
 <script id="template" type="x-tmpl-mustache">
 </script>
+<nav>{{{nav}}}</nav>
 {{{content}}}
 </body>
 </html>

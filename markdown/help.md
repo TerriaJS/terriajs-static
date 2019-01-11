@@ -1,5 +1,5 @@
 ---
-title: Help
+title: Help & FAQ
 template: normal
 ---
 
