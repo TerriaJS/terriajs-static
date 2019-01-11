@@ -1,5 +1,12 @@
 <ul>
   {{#menuSidebarItems}}
-    <li><a href={{{url}}}>{{{title}}}</a></li>
+    <li>
+      {{{title}}}
+      <ul>
+      {{#items}}
+        <li><a data-scroll-nav='{{index}} 'data-scroll-id='{{{id}}}' href='{{{url}}}'>{{{title}}}</a></li>
+      {{/items}}
+    </ul>
+  </li>
   {{/menuSidebarItems}}
 </ul>

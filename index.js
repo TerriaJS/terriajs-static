@@ -56,7 +56,25 @@ async function generateHtml(file){
     const contentHtml = converter.makeHtml(content.content);
     const data = await readFileAsync(template +'/wrapper.mst', {encoding: 'utf8'});
     const imageSidebarItems = content.data.imageSidebarItems;
-    const menuSidebarItems = content.data.menuSidebarItems;
+    const menuSidebarItemsRaw = content.data.menuSidebarItems;
+    let menuSidebarItems = [];
+    
+    if(menuSidebarItemsRaw && menuSidebarItemsRaw.length > 0){
+       menuSidebarItems = menuSidebarItemsRaw.map((group) => {
+         return {title: group.title,
+                items: group.items.map((item, index) =>{
+                  const id= '#' + item.title.toLowerCase().replace(/\s/g, "-");
+                  return {title: item.title,
+                          index,
+                          id: id,
+                          url: fileTitle + id
+                        }
+                })}
+       })
+    }
+    
+    console.log(menuSidebarItems)
+    
     
     const files = await readDirAsync(template + '/partials', {encoding: 'utf8'});
     const partials = {};
@@ -64,6 +82,7 @@ async function generateHtml(file){
       const partial = await readFileAsync(template + '/partials/' + files[i], {encoding: 'utf8'})
       partials[files[i]] = partial
     }
+    
     const output = Mustache.render(data.toString(), {content: contentHtml, 
                                                      title: content.data.title,
                                                      navItems: navItems,
