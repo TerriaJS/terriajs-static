@@ -21,21 +21,22 @@ const navItems = [
   {title: 'Help & FAQ', url: '/help'}
 ]
 
-
-// async function loadPartials(){
-//   try{
-//     const files = await readDirAsync(template + '/partials', {encoding: 'utf8'});
-//     const partials = [];
-//     for(let i = 0; i < files.length; i ++){
-//       const partial = await readFileAsync(template + '/partials/' + files[i], {encoding: 'utf8'})
-//       partials.push(partial)
-//     }
-//   }
-//   catch(err){
-//     console.log('ERROR', err)
-//   }
-// 
-// }
+function parseNestedMenuItems(menuSidebarItemsRaw, fileTitle){
+  if(menuSidebarItemsRaw && menuSidebarItemsRaw.length > 0){
+     return menuSidebarItemsRaw.map((group) => {
+       return {title: group.title,
+              items: group.items.map((item, index) =>{
+                const id= '#' + item.title.toLowerCase().replace(/\s/g, "-");
+                return {title: item.title,
+                        index,
+                        id: id,
+                        url: fileTitle + id
+                      }
+              })}
+     })
+  }
+  return [];
+}
 
 
 async function writeFile(fileTitle, output){
@@ -57,24 +58,7 @@ async function generateHtml(file){
     const data = await readFileAsync(template +'/wrapper.mst', {encoding: 'utf8'});
     const imageSidebarItems = content.data.imageSidebarItems;
     const menuSidebarItemsRaw = content.data.menuSidebarItems;
-    let menuSidebarItems = [];
-    
-    if(menuSidebarItemsRaw && menuSidebarItemsRaw.length > 0){
-       menuSidebarItems = menuSidebarItemsRaw.map((group) => {
-         return {title: group.title,
-                items: group.items.map((item, index) =>{
-                  const id= '#' + item.title.toLowerCase().replace(/\s/g, "-");
-                  return {title: item.title,
-                          index,
-                          id: id,
-                          url: fileTitle + id
-                        }
-                })}
-       })
-    }
-    
-    console.log(menuSidebarItems)
-    
+    const menuSidebarItems = parseNestedMenuItems(menuSidebarItemsRaw, fileTitle);
     
     const files = await readDirAsync(template + '/partials', {encoding: 'utf8'});
     const partials = {};
@@ -85,9 +69,9 @@ async function generateHtml(file){
     
     const output = Mustache.render(data.toString(), {content: contentHtml, 
                                                      title: content.data.title,
-                                                     navItems: navItems,
-                                                     imageSidebarItems: imageSidebarItems,
-                                                     menuSidebarItems: menuSidebarItems},
+                                                     navItems,
+                                                     imageSidebarItems,
+                                                     menuSidebarItems},
                                                      partials
                                                      );
     writeFile(fileTitle, output);
