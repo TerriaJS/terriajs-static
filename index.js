@@ -16,18 +16,27 @@ const template = process.cwd() + "/template";
 
 const converter = new showdown.Converter();
 
-const nav = [
-  {title: 'About', link: '/about'},
-  {title: 'Help & FAQ', link: '/help'}
+const navItems = [
+  {title: 'About', url: '/about'},
+  {title: 'Help & FAQ', url: '/help'}
 ]
 
 
-function generateNav(pageTitle){
-  return `<ul>
-    ${nav.map(item =>
-    `<li><a href='${item.link}' class=${item.title === pageTitle ? '"active"' : '"non-active"' }>${item.title}</a></li>`).join(" ")}
-  </ul>`
-}
+// async function loadPartials(){
+//   try{
+//     const files = await readDirAsync(template + '/partials', {encoding: 'utf8'});
+//     const partials = [];
+//     for(let i = 0; i < files.length; i ++){
+//       const partial = await readFileAsync(template + '/partials/' + files[i], {encoding: 'utf8'})
+//       partials.push(partial)
+//     }
+//   }
+//   catch(err){
+//     console.log('ERROR', err)
+//   }
+// 
+// }
+
 
 async function writeFile(fileTitle, output){
   try{
@@ -43,9 +52,23 @@ async function generateHtml(file){
   try{
     const content = matter.read(folder + '/' + file, {encoding: 'utf8'});
     const fileTitle = content.data.title + '.html';
+    
     const contentHtml = converter.makeHtml(content.content);
     const data = await readFileAsync(template +'/wrapper.mst', {encoding: 'utf8'});
-    const output = Mustache.render(data.toString(), {content: contentHtml, nav: generateNav(content.data.title)});
+    const sidebarItems = content.data.sidebar;
+    const files = await readDirAsync(template + '/partials', {encoding: 'utf8'});
+    const partials = [];
+    for(let i = 0; i < files.length; i ++){
+      const partial = await readFileAsync(template + '/partials/' + files[i], {encoding: 'utf8'})
+      partials.push({[files[i]]: partial})
+    }
+    console.log(partials);
+    const output = Mustache.render(data.toString(), {content: contentHtml, 
+                                                     title: content.data.title,
+                                                     navItems: navItems,
+                                                     sidebarItems: sidebarItems},
+                                                     {partial: partials}
+                                                     );
     writeFile(fileTitle, output);
   }
   catch(err){

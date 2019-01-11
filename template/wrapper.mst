@@ -4,7 +4,12 @@
 <div id="content"></div>
 <script id="template" type="x-tmpl-mustache">
 </script>
-<nav>{{{nav}}}</nav>
-{{{content}}}
+<nav><ul>
+{{#navItems}}
+    <li><a href="{{{url}}}">{{{title}}}</a></li>
+{{/navItems}}
+</ul></nav>
+  {{{content}}}
+  {{> imageSidebar.mst}}
 </body>
 </html>

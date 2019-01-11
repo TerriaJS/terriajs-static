@@ -1,0 +1,5 @@
+<ul>
+  {{#sidebarItems}}
+    <li><a href={{{url}}}><img src={{{src}}} alt={{alt}}/></a></li>
+  {{/sidebarItems}}
+</ul>

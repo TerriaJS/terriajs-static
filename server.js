@@ -3,7 +3,7 @@ var app = express();
 var path = require('path');
 
 // viewed at http://localhost:8080
-app.use(express.static('dist'))
+app.use(express.static('public'))
 
 app.get('/about', function(req, res) {
     res.sendFile(__dirname + "/dist/" + "About.html");
