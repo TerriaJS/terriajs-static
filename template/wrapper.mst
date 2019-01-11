@@ -10,6 +10,11 @@
 {{/navItems}}
 </ul></nav>
   {{{content}}}
-  {{> imageSidebar.mst}}
+  {{#imageSidebarItems}}
+    {{> imageSidebar.mst}}
+  {{/imageSidebarItems}}
+  {{#menuSidebarItems}}
+    {{> menuSidebar.mst}}
+  {{/menuSidebarItems}}
 </body>
 </html>

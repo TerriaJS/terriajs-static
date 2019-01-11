@@ -55,19 +55,21 @@ async function generateHtml(file){
     
     const contentHtml = converter.makeHtml(content.content);
     const data = await readFileAsync(template +'/wrapper.mst', {encoding: 'utf8'});
-    const sidebarItems = content.data.sidebar;
+    const imageSidebarItems = content.data.imageSidebarItems;
+    const menuSidebarItems = content.data.menuSidebarItems;
+    
     const files = await readDirAsync(template + '/partials', {encoding: 'utf8'});
-    const partials = [];
+    const partials = {};
     for(let i = 0; i < files.length; i ++){
       const partial = await readFileAsync(template + '/partials/' + files[i], {encoding: 'utf8'})
-      partials.push({[files[i]]: partial})
+      partials[files[i]] = partial
     }
-    console.log(partials);
     const output = Mustache.render(data.toString(), {content: contentHtml, 
                                                      title: content.data.title,
                                                      navItems: navItems,
-                                                     sidebarItems: sidebarItems},
-                                                     {partial: partials}
+                                                     imageSidebarItems: imageSidebarItems,
+                                                     menuSidebarItems: menuSidebarItems},
+                                                     partials
                                                      );
     writeFile(fileTitle, output);
   }

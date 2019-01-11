@@ -1,14 +1,14 @@
 ---
 title: About
 template: normal
-sidebar: 
+imageSidebarItems: 
       - src: 'https://nationalmap.gov.au/help/img/DTA-stacked.png'
         url: 'https://nationalmap.gov.au/about.html'
         alt: ''
       - src: 'https://nationalmap.gov.au/help/img/DTA-stacked.png'
         url: 'https://nationalmap.gov.au/about.html'
         alt: ''
-      
+menuSidebarItems:
 ---
 
 ## About NationalMap
