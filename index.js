@@ -17,10 +17,9 @@ const template = process.cwd() + "/template";
 const converter = new showdown.Converter();
 
 const navItems = [
-  {title: 'About', url: '/about'},
-  {title: 'Help & FAQ', url: '/help'}
+  {title: 'About', url: '/about.html'},
+  {title: 'Help & FAQ', url: '/help.html'}
 ]
-
 function parseNestedMenuItems(menuSidebarItemsRaw, fileTitle){
   if(menuSidebarItemsRaw && menuSidebarItemsRaw.length > 0){
      return menuSidebarItemsRaw.map((group) => {
@@ -28,9 +27,7 @@ function parseNestedMenuItems(menuSidebarItemsRaw, fileTitle){
               items: group.items.map((item, index) =>{
                 const id= '#' + item.title.toLowerCase().replace(/\s/g, "-");
                 return {title: item.title,
-                        index,
-                        id: id,
-                        url: fileTitle + id
+                        url: id
                       }
               })}
      })
@@ -53,21 +50,21 @@ async function generateHtml(file){
   try{
     const content = matter.read(folder + '/' + file, {encoding: 'utf8'});
     const fileTitle = content.data.title + '.html';
-    
+
     const contentHtml = converter.makeHtml(content.content);
     const data = await readFileAsync(template +'/wrapper.mst', {encoding: 'utf8'});
     const imageSidebarItems = content.data.imageSidebarItems;
     const menuSidebarItemsRaw = content.data.menuSidebarItems;
     const menuSidebarItems = parseNestedMenuItems(menuSidebarItemsRaw, fileTitle);
-    
+
     const files = await readDirAsync(template + '/partials', {encoding: 'utf8'});
     const partials = {};
     for(let i = 0; i < files.length; i ++){
       const partial = await readFileAsync(template + '/partials/' + files[i], {encoding: 'utf8'})
       partials[files[i]] = partial
     }
-    
-    const output = Mustache.render(data.toString(), {content: contentHtml, 
+
+    const output = Mustache.render(data.toString(), {content: contentHtml,
                                                      title: content.data.title,
                                                      navItems,
                                                      imageSidebarItems,
@@ -95,5 +92,3 @@ async function loadContent(){
 }
 
 loadContent();
-
-

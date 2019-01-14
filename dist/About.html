@@ -2,15 +2,20 @@
 <html>
 <body>
 <div id="content"></div>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/simplegrid@1.0.2/simple-grid.scss"> -->
 <script id="template" type="x-tmpl-mustache">
 </script>
-<nav><ul>
-    <li><a href="/about">About</a></li>
-    <li><a href="/help">Help & FAQ</a></li>
+<nav><ul class="nav">
+    <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+    <li class="nav-item"><a class="nav-link" href="/help.html">Help & FAQ</a></li>
 </ul></nav>
-  <h2 id="aboutnationalmap">About NationalMap</h2>
+<main class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2 id="aboutnationalmap">About NationalMap</h2>
 <p>NationalMap&nbsp;is an online map-based tool to allow easy access to spatial data from Australian government agencies. It was an initiative of the Department of Communications and the Arts (DCA) now currently managed by the Digital Transformation Agency (DTA) and the software has been developed by Data61 working closely with the DCA, Geoscience Australia and other government agencies.</p>
-<h1 id="iframewidth848height636srchttpswwwyoutubecomembedgseaq0x0xh4frameborder0allowaccelerometerautoplayencryptedmediagyroscopepictureinpictureallowfullscreeniframe">/<iframe width="848" height="636" src="https://www.youtube.com/embed/gsEAq0x0xh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></h1>
+<h1 id="iframewidth848height636srchttpswwwyoutubecomembedgseaq0x0xh4frameborder0allowaccelerometerautoplayencryptedmediagyroscopepictureinpictureallowfullscreeniframe"><iframe width="848" height="636" src="https://www.youtube.com/embed/gsEAq0x0xh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></h1>
 <p>NationalMap&nbsp;is a fully open architecture. When you access data through it, you are typically accessing the data directly from the government department or agency who are the custodians of that data.</p>
 <p>NationalMap…</p>
 <ul>
@@ -69,11 +74,16 @@
 <p>Any information provided by data custodians displayed on NationalMap is provided as is and on the understanding that the respective data custodian is not responsible for, nor guarantees the timeliness, accuracy or completeness of that information. If you intend to rely on any information displayed on NationalMap or data.gov.au, then you must apply in writing to the respective data custodian for further authorisation.</p>
 <p>You acknowledge that your use of NationalMap or data.gov.au means that you have provided your acceptance of these terms and conditions.</p>
 <p>You must consider the usage rights and restrictions of the basemap and each activated dataset when using the output of NationalMap in broadcast, print, or other distribution. The terms of use of the default Bing Maps basemap may be found here:&nbsp;<a href="https://www.microsoft.com/maps/product/terms.html">https://www.microsoft.com/maps/product/terms.html</a>.</p>
+    </div>
+    <div class="col-sm-4">
 <ul>
-    <li><a href=https://nationalmap.gov.au/about.html><img src=https://nationalmap.gov.au/help/img/DTA-stacked.png alt=/></a></li>
-    <li><a href=https://nationalmap.gov.au/about.html><img src=https://nationalmap.gov.au/help/img/DTA-stacked.png alt=/></a></li>
-</ul><ul>
-    <li><a href=https://nationalmap.gov.au/about.html><img src=https://nationalmap.gov.au/help/img/DTA-stacked.png alt=/></a></li>
-    <li><a href=https://nationalmap.gov.au/about.html><img src=https://nationalmap.gov.au/help/img/DTA-stacked.png alt=/></a></li>
-</ul></body>
+    <li><a href=https://nationalmap.gov.au/about.html><img class="img-thumbnail" src=https://nationalmap.gov.au/help/img/DTA-stacked.png alt=/></a></li>
+    <li><a href=https://nationalmap.gov.au/about.html><img class="img-thumbnail" src=https://nationalmap.gov.au/help/img/DTA-stacked.png alt=/></a></li>
+</ul>
+<ul class="list-group list-group-flush">
+</ul>
+    </div>
+  </div>
+</main>
+</body>
 </html>

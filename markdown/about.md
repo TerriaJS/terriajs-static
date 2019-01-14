@@ -1,7 +1,7 @@
 ---
 title: About
 template: normal
-imageSidebarItems: 
+imageSidebarItems:
       - src: 'https://nationalmap.gov.au/help/img/DTA-stacked.png'
         url: 'https://nationalmap.gov.au/about.html'
         alt: ''
@@ -15,7 +15,7 @@ menuSidebarItems:
 
 NationalMap is an online map-based tool to allow easy access to spatial data from Australian government agencies. It was an initiative of the Department of Communications and the Arts (DCA) now currently managed by the Digital Transformation Agency (DTA) and the software has been developed by Data61 working closely with the DCA, Geoscience Australia and other government agencies.
 
-#/<iframe width="848" height="636" src="https://www.youtube.com/embed/gsEAq0x0xh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+#<iframe width="848" height="636" src="https://www.youtube.com/embed/gsEAq0x0xh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 NationalMap is a fully open architecture. When you access data through it, you are typically accessing the data directly from the government department or agency who are the custodians of that data.
 
