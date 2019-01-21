@@ -1,24 +1,38 @@
 <!DOCTYPE HTML>
 <html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <title>NationalMap</title>
+</head>
 <body>
 <div id="content"></div>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/simplegrid@1.0.2/simple-grid.scss"> -->
 <script id="template" type="x-tmpl-mustache">
 </script>
-<nav><ul class="nav">
-    <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
-    <li class="nav-item"><a class="nav-link" href="/help.html">Help</a></li>
-    <li class="nav-item"><a class="nav-link" href="/faq.html">FAQ</a></li>
-    <li class="nav-item"><a class="nav-link" href="/privacy.html">Privacy</a></li>
-    <li class="nav-item"><a class="nav-link" href="https://nationalmap.gov.au/">Launch NationalMap</a></li>
-</ul></nav>
-<main class="container">
+<nav class="header-nav">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2"><a href='/'><img class="logo" src='logo.svg' alt='logo'/></a></div>
+      <div class="col-sm-10">
+        <ul class="nav">
+              <li class="nav-item"><a class="nav-link active" href="/about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link " href="/help.html">Help</a></li>
+              <li class="nav-item"><a class="nav-link " href="/faq.html">FAQ</a></li>
+              <li class="nav-item"><a class="nav-link " href="/privacy.html">Privacy</a></li>
+              <li class="nav-item"><a class="nav-link " href="https://nationalmap.gov.au/">Launch NationalMap</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav><main class="container">
   <div class="row">
     <div class="col-sm-8">
-      <h2 id="aboutnationalmap">About NationalMap</h2>
+      <h1 id="aboutnationalmap">About NationalMap</h1>
 <p>NationalMap&nbsp;is an online map-based tool to allow easy access to spatial data from Australian government agencies. It was an initiative of the Department of Communications and the Arts (DCA) now currently managed by the Digital Transformation Agency (DTA) and the software has been developed by Data61 working closely with the DCA, Geoscience Australia and other government agencies.</p>
-<h1 id="iframewidth848height636srchttpswwwyoutubecomembedgseaq0x0xh4frameborder0allowaccelerometerautoplayencryptedmediagyroscopepictureinpictureallowfullscreeniframe"><iframe width="848" height="636" src="https://www.youtube.com/embed/gsEAq0x0xh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></h1>
+<div class="embed-responsive embed-responsive-16by9">
+<iframe width="848" height="636" src="https://www.youtube.com/embed/gsEAq0x0xh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 <p>NationalMap&nbsp;is a fully open architecture. When you access data through it, you are typically accessing the data directly from the government department or agency who are the custodians of that data.</p>
 <p>NationalMap…</p>
 <ul>
@@ -66,7 +80,7 @@
 <li><a href="https://www.microsoft.com/en-us/maps/">Bing Maps</a>&nbsp;- From Microsoft Corporation.</li>
 <li><a href="https://ecat.ga.gov.au/geonetwork/srv/eng/catalog.search#/metadata/e19a92fa-257c-159d-e044-00144fdd4fa6">Gazetteer of Australia</a>&nbsp;- For Oficial Place Names.&nbsp;<a href="https://s3-ap-southeast-2.amazonaws.com/fsdf.placenames/DPS/Composite+Gazetteer+DPS.pdf">More Information</a>.</li>
 </ul>
-<h3 id="termsconditions">Terms &amp; Conditions</h3>
+<h3 id="anametermsatermsconditions"><a name="terms"></a>Terms &amp; Conditions</h3>
 <p>The information displayed on NationalMap is for general informational purposes only, and is not intended to provide any commercial, financial, or legal advice. Any information in connection with NationalMap may not be appropriate to your individual needs. You must exercise your own independent, skill, care and judgment with respect to how you use the information displayed on NationalMap.</p>
 <p>As a condition of using NationalMap, you must comply with all applicable laws, regulations and third party rights (including, without limitation, laws regarding the import or export of data or software, privacy and local laws). You must not use NationalMap to encourage or promote illegal activity or violation of third party rights. Some parts of NationalMap (like the URL shortening function) rely upon third party APIs.</p>
 <p>In any important matter, you should seek professional advice relevant to your own circumstances.</p>
@@ -79,13 +93,18 @@
 <p>You must consider the usage rights and restrictions of the basemap and each activated dataset when using the output of NationalMap in broadcast, print, or other distribution. The terms of use of the default Bing Maps basemap may be found here:&nbsp;<a href="https://www.microsoft.com/maps/product/terms.html">https://www.microsoft.com/maps/product/terms.html</a>.</p>
     </div>
     <div class="col-sm-4">
-<ul>
-    <li><a href=https://nationalmap.gov.au/about.html><img class="img-thumbnail" src=https://nationalmap.gov.au/help/img/DTA-stacked.png alt=/></a></li>
-</ul>
-<ul class="list-group list-group-flush">
+<div>
+    <a href=><img class="img-thumbnail border-0" src=https://nationalmap.gov.au/help/img/data61-white.jpg alt=data61 logo class="rounded"/></a>
+</div><ul class="nav flex-column">
 </ul>
     </div>
   </div>
 </main>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">© Department of the Prime Minister and Cabinet, Department of Communications, and CSIRO Data61 2014-2017. All Rights Reserved</p>
+    <p><strong><a href="../about.html#terms">Terms and conditions</a></strong> – <strong><a href="privacy.html">Privacy</a></strong></p>
+  </div>
+</footer>
 </body>
 </html>

@@ -1,16 +1,16 @@
 <!DOCTYPE HTML>
 <html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <title>{{{appName}}}</title>
+</head>
 <body>
 <div id="content"></div>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/simplegrid@1.0.2/simple-grid.scss"> -->
 <script id="template" type="x-tmpl-mustache">
 </script>
-<nav><ul class="nav">
-{{#navItems}}
-    <li class="nav-item"><a class="nav-link" href="{{{url}}}">{{{title}}}</a></li>
-{{/navItems}}
-</ul></nav>
+{{> headerNav.mst}}
 <main class="container">
   <div class="row">
     <div class="col-sm-8">
@@ -22,5 +22,6 @@
     </div>
   </div>
 </main>
+{{> footer.mst}}
 </body>
 </html>

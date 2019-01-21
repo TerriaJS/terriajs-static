@@ -1,0 +1,14 @@
+<nav class="header-nav">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2"><a href='/'><img class="logo" src='logo.svg' alt='logo'/></a></div>
+      <div class="col-sm-10">
+        <ul class="nav">
+          {{#navItems}}
+              <li class="nav-item"><a class="nav-link {{{class}}}" href="{{{url}}}">{{{title}}}</a></li>
+          {{/navItems}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

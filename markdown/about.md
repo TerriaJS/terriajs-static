@@ -2,17 +2,19 @@
 title: About
 template: normal
 imageSidebarItems:
-      - src: 'https://nationalmap.gov.au/help/img/DTA-stacked.png'
-        url: 'https://nationalmap.gov.au/about.html'
-        alt: ''
+      - src: 'https://nationalmap.gov.au/help/img/data61-white.jpg'
+        url: ''
+        alt: 'data61 logo'
 menuSidebarItems:
 ---
 
-## About NationalMap
+# About NationalMap
 
 NationalMap is an online map-based tool to allow easy access to spatial data from Australian government agencies. It was an initiative of the Department of Communications and the Arts (DCA) now currently managed by the Digital Transformation Agency (DTA) and the software has been developed by Data61 working closely with the DCA, Geoscience Australia and other government agencies.
 
-#<iframe width="848" height="636" src="https://www.youtube.com/embed/gsEAq0x0xh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="embed-responsive embed-responsive-16by9">
+<iframe width="848" height="636" src="https://www.youtube.com/embed/gsEAq0x0xh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 NationalMap is a fully open architecture. When you access data through it, you are typically accessing the data directly from the government department or agency who are the custodians of that data.
 
@@ -78,7 +80,7 @@ The datasets in the NationalMap application catalogue are sourced from Commonwea
 - [Bing Maps](https://www.microsoft.com/en-us/maps/) - From Microsoft Corporation.
 - [Gazetteer of Australia](https://ecat.ga.gov.au/geonetwork/srv/eng/catalog.search#/metadata/e19a92fa-257c-159d-e044-00144fdd4fa6) - For Oficial Place Names. [More Information](https://s3-ap-southeast-2.amazonaws.com/fsdf.placenames/DPS/Composite+Gazetteer+DPS.pdf).
 
-### Terms & Conditions
+### <a name="terms"></a>Terms & Conditions
 
 The information displayed on NationalMap is for general informational purposes only, and is not intended to provide any commercial, financial, or legal advice. Any information in connection with NationalMap may not be appropriate to your individual needs. You must exercise your own independent, skill, care and judgment with respect to how you use the information displayed on NationalMap.
 

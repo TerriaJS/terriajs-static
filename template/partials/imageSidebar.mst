@@ -1,5 +1,5 @@
-<ul>
+<div>
   {{#imageSidebarItems}}
-    <li><a href={{{url}}}><img class="img-thumbnail" src={{{src}}} alt={{alt}}/></a></li>
+    <a href={{{url}}}><img class="img-thumbnail border-0" src={{{src}}} alt={{alt}} class="rounded"/></a>
   {{/imageSidebarItems}}
-</ul>
+</div>

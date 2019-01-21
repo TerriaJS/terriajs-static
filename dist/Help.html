@@ -1,22 +1,34 @@
 <!DOCTYPE HTML>
 <html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <title>NationalMap</title>
+</head>
 <body>
 <div id="content"></div>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/simplegrid@1.0.2/simple-grid.scss"> -->
 <script id="template" type="x-tmpl-mustache">
 </script>
-<nav><ul class="nav">
-    <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
-    <li class="nav-item"><a class="nav-link" href="/help.html">Help</a></li>
-    <li class="nav-item"><a class="nav-link" href="/faq.html">FAQ</a></li>
-    <li class="nav-item"><a class="nav-link" href="/privacy.html">Privacy</a></li>
-    <li class="nav-item"><a class="nav-link" href="https://nationalmap.gov.au/">Launch NationalMap</a></li>
-</ul></nav>
-<main class="container">
+<nav class="header-nav">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2"><a href='/'><img class="logo" src='logo.svg' alt='logo'/></a></div>
+      <div class="col-sm-10">
+        <ul class="nav">
+              <li class="nav-item"><a class="nav-link " href="/about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link active" href="/help.html">Help</a></li>
+              <li class="nav-item"><a class="nav-link " href="/faq.html">FAQ</a></li>
+              <li class="nav-item"><a class="nav-link " href="/privacy.html">Privacy</a></li>
+              <li class="nav-item"><a class="nav-link " href="https://nationalmap.gov.au/">Launch NationalMap</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav><main class="container">
   <div class="row">
     <div class="col-sm-8">
-      <h2 id="help">Help</h2>
+      <h1 id="help">Help</h1>
 <h3 id="anamegetstartedwithnationalmapahowtogetstartedwithnationalmap"><a name="get-started-with-nationalmap"></a>How to get started with NationalMap</h3>
 <p>To launch NationalMap and display some basic data follow these steps.</p>
 <ul>
@@ -37,11 +49,7 @@
 <h3 id="anamedisplaymyownspatialdatahowtodisplaymyownspreadsheetorspatialdata"><a name="display-my-own-spatial-data">How to display my own spreadsheet or spatial data</h3>
 <p>NationalMap can display two kinds of spreadsheets:</p>
 <ol>
-<li>Spreadsheets with a&nbsp;point location (latitude and longitude)&nbsp;for each row, expressed as two columns:&nbsp;</li>
-</ol>
-<p>lat&nbsp;and&nbsp;</p>
-<p>lon. These will be displayed as points (circles).</p>
-<ol start="2">
+<li>Spreadsheets with a&nbsp;point location (latitude and longitude)&nbsp;for each row, expressed as two columns:&nbsp;<code>lat</code>&nbsp;and&nbsp;<code>lon</code>. These will be displayed as points (circles).</li>
 <li>Spreadsheets where each row refers to a&nbsp;region&nbsp;such as a local government area (council), state, postcode, or ABS statistical unit such as an SA2 or CED (Commonwealth Electoral Division). Columns must be named according to the&nbsp;<a href="https://github.com/TerriaJS/nationalmap/wiki/csv-geo-au">CSV-geo-au</a>&nbsp;standard. These will be displayed as regions, highlighting the actual shape of each area.</li>
 </ol>
 <p>Spreadsheets must be saved as CSV (comma-separated values).</p>
@@ -56,26 +64,33 @@
 <p>To share a view of your data with others, you must first publish it to the web somewhere with a URL, and then load it from there.</p>
     </div>
     <div class="col-sm-4">
-<ul>
-</ul>
-<ul class="list-group list-group-flush">
-    <li class="list-group-item">
-      how to
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><a href='#get-started-with-nationalmap'>Get started with NationalMap</a></li>
-        <li class="list-group-item"><a href='#find-out-about-a-displayed-feature'>Find out about a displayed feature</a></li>
-        <li class="list-group-item"><a href='#display-my-own-spatial-data'>Display my own spatial data</a></li>
+<div>
+</div><ul class="nav flex-column">
+    <li class="nav-item">
+      <div class="nav-sub-heading">how to</div>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class='nav-link' href='#get-started-with-nationalmap'>Get started with NationalMap</a></li>
+        <li class="nav-item"><a class='nav-link' href='#find-out-about-a-displayed-feature'>Find out about a displayed feature</a></li>
+        <li class="nav-item"><a class='nav-link' href='#display-my-own-spatial-data'>Display my own spatial data</a></li>
     </ul>
   </li>
-    <li class="list-group-item">
-      Key Features
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><a href='#map-navigation-and-display'>Map Navigation and Display</a></li>
+    <li class="nav-item">
+      <div class="nav-sub-heading">Key Features</div>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class='nav-link' href='#map-navigation-and-display'>Map Navigation and Display</a></li>
+        <li class="nav-item"><a class='nav-link' href='#data-catalogue'>Data Catalogue</a></li>
+        <li class="nav-item"><a class='nav-link' href='#data-workbench'>Data Workbench</a></li>
     </ul>
   </li>
 </ul>
     </div>
   </div>
 </main>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">© Department of the Prime Minister and Cabinet, Department of Communications, and CSIRO Data61 2014-2017. All Rights Reserved</p>
+    <p><strong><a href="../about.html#terms">Terms and conditions</a></strong> – <strong><a href="privacy.html">Privacy</a></strong></p>
+  </div>
+</footer>
 </body>
 </html>

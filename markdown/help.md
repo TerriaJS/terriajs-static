@@ -13,10 +13,12 @@ menuSidebarItems:
     title: 'Key Features'
     items:
           - title: 'Map Navigation and Display'
+          - title: 'Data Catalogue'
+          - title: 'Data Workbench'
 
 ---
 
-## Help
+# Help
 
 ### <a name="get-started-with-nationalmap"></a>How to get started with NationalMap
 
@@ -45,11 +47,7 @@ You cannot find out further information about the features which are part of the
 
 NationalMap can display two kinds of spreadsheets:
 
-1. Spreadsheets with a point location (latitude and longitude) for each row, expressed as two columns: 
-
-lat and 
-
-lon. These will be displayed as points (circles).
+1. Spreadsheets with a point location (latitude and longitude) for each row, expressed as two columns: `lat` and `lon`. These will be displayed as points (circles).
 2. Spreadsheets where each row refers to a region such as a local government area (council), state, postcode, or ABS statistical unit such as an SA2 or CED (Commonwealth Electoral Division). Columns must be named according to the [CSV-geo-au](https://github.com/TerriaJS/nationalmap/wiki/csv-geo-au) standard. These will be displayed as regions, highlighting the actual shape of each area.
 
 Spreadsheets must be saved as CSV (comma-separated values).
