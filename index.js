@@ -18,7 +18,10 @@ const converter = new showdown.Converter();
 
 const navItems = [
   {title: 'About', url: '/about.html'},
-  {title: 'Help & FAQ', url: '/help.html'}
+  {title: 'Help', url: '/help.html'},
+  {title: 'FAQ', url: '/faq.html'},
+  {title: 'Privacy', url: '/privacy.html'},
+  {title: 'Launch NationalMap', url: 'https://nationalmap.gov.au/'}
 ]
 function parseNestedMenuItems(menuSidebarItemsRaw, fileTitle){
   if(menuSidebarItemsRaw && menuSidebarItemsRaw.length > 0){
