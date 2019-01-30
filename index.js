@@ -51,6 +51,7 @@ async function cookHtml(content){
     return  Mustache.render(data.toString(), {appName: config.appName,
                                              content: contentHtml,
                                              title: content.data.title,
+                                             id: content.data.title.split('  ').join('-').toLowerCase(),
                                              footerCredit,
                                              navItems: parseNavItems(config.navItems, fileTitle),
                                              imageSidebarItems,
@@ -77,7 +78,7 @@ function parseNavItems(navs, docName){
 
 async function writeFile(fileName, output){
   try{
-    await writeFileAsync(dist + '/' + fileName, output);
+    await writeFileAsync(dist + '/' + fileName.toLowerCase(), output);
     console.log(dist + '/' + fileName + " has been saved")
   }
   catch(err){
@@ -89,7 +90,7 @@ async function generateHtml(file){
   try{
     const content = matter.read(markdown + '/' + file, {encoding: 'utf8'});
     const temp = content.data.template;
-    const fileTitle = content.data.title.toLowerCase();
+    const fileTitle = content.data.title ? content.data.title.toLowerCase(): '';
     const fileName = fileTitle + '.html';
     let output;
     
