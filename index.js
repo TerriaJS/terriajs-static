@@ -19,7 +19,7 @@ try{
  config = require('./config.js');
 };
 
-console.log(config);
+console.log("generating pages with the following config: \n ",  config);
 
 const markdown = config.markdown || __dirname + '/markdown';
 const dist = config.dist;
@@ -57,10 +57,10 @@ async function cookHtml(content, fileTitle){
     }
     
     const footerCredit = config.footerCredit;
-        
     return  Mustache.render(data.toString(), {appName: config.appName,
                                              content: contentHtml,
                                              title: content.data.title,
+                                             id:fileTitle,
                                              footerCredit,
                                              navItems: parseNavItems(config.navItems, fileTitle),
                                              imageSidebarItems,

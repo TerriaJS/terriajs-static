@@ -16,7 +16,7 @@
   <![endif]--> 
  <title>{{{appName}}}</title>
 </head>
-<body>
+<body class={{{id}}}>
 <div id="content"></div>
 <script id="template" type="x-tmpl-mustache">
 </script>
