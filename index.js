@@ -40,10 +40,9 @@ function parseNestedMenuItems(menuItemsRaw, fileName){
   return [];
 }
 
-async function cookHtml(content){
+async function cookHtml(content, fileTitle){
   try{
     const contentHtml = converter.makeHtml(content.content);
-    const fileTitle = content.data.title.toLowerCase();
     const data = await readFileAsync(template +'/wrapper.mst', {encoding: 'utf8'});
     
     const imageSidebarItems = content.data.imageSidebarItems;
@@ -98,18 +97,22 @@ async function writeFile(fileName, output){
 
 async function generateHtml(file){
   try{
+    if(file.split('.').pop() !== 'md'){
+      console.log('ignoreing invalid file: '+ file);
+      return false;
+    }
     const content = matter.read(markdown + '/' + file, {encoding: 'utf8'});
     const temp = content.data.template;
-    const fileTitle = content.data.title.toLowerCase();
+    const fileTitle = content.data.title.toString().toLowerCase();
     const fileName = fileTitle + '.html';
     let output;
     
     if(temp === 'normal'){
-        output = await cookHtml(content);
+        output = await cookHtml(content, fileTitle);
     } else {
       // allow for custom rendering
       if(typeof config.customRender === 'function'){
-        output = config.customRender(content);
+        output = config.customRender(content, fileTitle);
       }
     }
     
