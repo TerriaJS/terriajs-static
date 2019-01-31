@@ -1,6 +1,6 @@
 {
 	"name": "terriajs-static",
-	"description": "The react static site generator that separates editing and code concerns",
+	"description": "Static page generator for terria apps",
 	"version": "1.0.0",
 	"repository": {
 		"type": "git",
