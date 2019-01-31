@@ -7,12 +7,23 @@ const readDirAsync = promisify(fs.readdir);
 const readFileAsync = promisify(fs.readFile);
 const writeFileAsync = promisify(fs.writeFile);
 const converter = new showdown.Converter();
-const config = require('./config.js');
+let config ;
 
+try{
+ const configPath = process.cwd() + '/wwwroot/static-page-config.js';
+ config = require(configPath);
+} catch(e){
+  if(e.code !=='MODULE_NOT_FOUND'){
+    throw e;
+  }
+ config = require('./config.js');
+};
 
-const markdown = config.markdown;
+console.log(config);
+
+const markdown = config.markdown || __dirname + '/markdown';
 const dist = config.dist;
-const template = config.template;
+const template = config.template || __dirname + '/template';
 
 function parseNestedMenuItems(menuItemsRaw, fileName){
   if(menuItemsRaw && menuItemsRaw.length > 0){
